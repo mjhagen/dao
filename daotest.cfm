@@ -55,6 +55,17 @@
 			  `eventDate` datetime DEFAULT NULL,
 			  PRIMARY KEY (`ID`)
 			)
+    " );
+  } else if ( dao.getDBtype() == "postgres" ){
+    // PostgreSQL specific
+    dao.execute( "
+      CREATE TABLE IF NOT EXISTS eventLog (
+        ID int serial primary key,
+        userID int NULL,
+        event varchar(50) NULL,
+        description text NULL,
+        eventDate date NULL
+      );
 		" );
 	}
 

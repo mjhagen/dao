@@ -180,6 +180,7 @@
 			switch( variables.dbVersion.database_productname ){
 				case "Microsoft SQL Server" : return "mssql";
 				case "MySQL" : return "mysql";
+				case "PostgreSQL" : return "postgres";
 			}
 		}
 
