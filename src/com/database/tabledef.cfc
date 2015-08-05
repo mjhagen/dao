@@ -182,7 +182,7 @@
 		if( arguments.type is "datetime" ){
 			arguments.type = "timestamp";
 		}
-		if( findNoCase( "int", arguments.type ) ){
+		if( findNoCase( "int", arguments.type ) || findNoCase( "serial", arguments.type ) ){
 			arguments.type = "INTEGER";
 		}
 		if( findNoCase( "money", arguments.type ) ){
