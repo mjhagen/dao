@@ -35,8 +35,9 @@
   </cffunction>
 
   <cffunction name="getLastID" hint="I return the ID of the last inserted record.  I am PostgreSQL specific." returntype="any" output="false">
+    <!--- TODO: create functional equivalent to MySQL LAST_INSERT_ID() --->
     <cfquery name="get" datasource="#getDsn()#">
-      SELECT Scope_Identity() as thekey
+      SELECT -1 AS thekey;
     </cfquery>
     <cfreturn get.thekey />
   </cffunction>
@@ -580,8 +581,6 @@
       }
 
       tableSQL &= columnsSQL & ')';
-
-writeDump(tableSQL);abort;
 
       /*if( listLen( primaryKeys ) ){
         tableSQL &=  ', PRIMARY KEY (#primaryKeys#)';
